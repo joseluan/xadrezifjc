@@ -1,0 +1,31 @@
+{% extends 'base_postagem.html' %}
+
+{% block content %}
+	<div class="noticia">
+		
+		<a href="{% url 'postagens.views.postagem' pk=post.pk %}"></a>
+	    <h1><a>&nbsp;{{ post.title }}&nbsp;</a></h1>
+	    <h2 id="data_publicacao">Postado em: {{ post.data_publicacao.date }}</h2>
+	    <p>&nbsp;</p>
+	    <p>{{ post.text }}</p>
+	    <br><br><br>
+	    
+		<form action="" method="post" accept-charset="utf-8" role="form" id="form">
+			<div class="form-group">
+				
+				{% csrf_token %}
+				<label class="titulo_formulario" for="usr">Name:</label>
+  				<input placeholder="Seu nome" type="text" class="form-control" id="usr" name="nome">
+			    
+			    <label class="titulo_formulario" for="comment">Comente sobre esta postagem:</label>
+			    <textarea placeholder="A vingança nunca é plena, mata a alma e a envenena!" class="form-control" id="comment" name="textoarea" rows="5" type="text"></textarea>
+			 	<br>
+
+			 	<button name="concluir" type="submit" class="btn btn-success" id="botao">Concluir</button>
+			 	<label id="total">Total de comentários: {{ total_comentarios }}</label>
+
+			</div>
+		</form>
+
+	</div>
+{% endblock %}

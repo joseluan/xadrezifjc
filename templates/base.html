@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Django</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Xadrez Na Região Do Mato Grande</title>
+	<link rel="stylesheet" href="{% static 'css/estilo.css' %}">		
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<head>
+<body>
+	<ul class="pagination pagination-lg">
+      <li><a href="/">Inicio</a></li>
+	  <li><a href="{% url 'entrar' %}">Entrar</a></li>
+	  <li><a href="{% url 'adicionar' %}">Adicionar Livro</a></li>
+	  <li><a href="{% url 'emprestimo' %}">Empréstimo de Livros</a></li>
+	  <li><a href="{% url 'livros' %}">Livros</a></li>
+	  <li><a href="{% url 'blogindex' %}">Blog</a></li>
+	  <li><a href="#">Sobre</a></li>
+	</ul>	
+	<a href="{% url 'sair' %}" ><h1>sair</h1></a>
+	{% block conteudo %}
+	{% endblock %}
+	
+</body>
+</html>

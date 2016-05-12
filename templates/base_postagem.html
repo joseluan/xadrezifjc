@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Apenas um blog</title>
+	<link rel="stylesheet" href="{% static 'css/estilo_postagem.css' %}">	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<header id="cabecalho" class="">
+		<a href="http://127.0.0.1:8000/" id="cabecalho_a">
+			<img src="{% static 'img/fundo_cabecalho.jpg' %}" id="cabecalho">
+			<h4 id="hora">&nbsp;&nbsp;<b>{{ data }}</b></h4>	
+			<img src="{% static 'img/calango.png' %}" id="calango"  href="http://127.0.0.1:8000/" alt="">	
+		</a>
+	</header>
+
+	{% block content %}
+	{% endblock %}
+
+	<footer id="rodape">
+	    <p>
+	    	<b>
+	        	<br>&nbsp;&nbsp;&nbsp;&nbsp;Copyright &copy; 2016 - by <a href="http://facebook.com/joseluan2012" target="_blank">Luan Silva</a><br/>           
+	    	</b>
+	    	<a target="_blank" href="http://djangoproject.com" id="django_a">
+	    		<img src="{% static 'img/django.png' %}" id="django"alt="">
+			</a>
+		</p>
+    </footer>
+			
+</body>
+</html>

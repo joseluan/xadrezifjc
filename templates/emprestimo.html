@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+	<h1>{{ selecionado }}</h1>
+	<form class="ui form" method="post" id="form" accept-charset="utf-8">
+	 {% csrf_token %}
+           	
+           		{% for livro in livros %}
+			  		<input type="radio" name="livro" value="{{livro.titulo}}"> {{livro.titulo}}<br>
+			  	{% endfor %}
+
+	  <div class="field">
+	  	<input name="nome" id="nome" type="text" size="30" placeholder="nome" />
+	  </div>
+
+	  <div class="field">
+	  	<input name="escola" id="escola" type="text" size="30" placeholder="escola" />
+	  </div>
+
+	  <div class="field">
+	  	<input name="matricula" id="matricula" type="number" size="5" max="99999999999999999999"  min="0" placeholder="matricula"/>
+	  </div>
+
+	  <button class="ui button" type="submit">Adicionar</button>
+
+	</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'baseblog.html' %}
+
+{% block content %}
+	<div id="publicidade">
+		<h4 id="titulo">Comentários</h4>
+		<p id="conteudo">
+			<h5>{{ titulo }}</h5>
+				{{ texto }}
+		</p>
+	</div>
+	{% for noticia in posts %}
+	    <div class="noticia">
+	    	<h1>&nbsp;<a href="{% url 'postagens.views.postagem' pk=noticia.pk %}">{{ noticia.title }}</a></h1>
+	    	<h2 id="data_publicacao"><b>Postado em: {{ noticia.data_publicacao.date }}</b></h2>
+	    	<div class="imagens">
+	    		<img src="{{ noticia.foto.url }}" >
+	    	</div>
+	       	<p>{{ noticia.text }}<br></p>
+	    </div>
+    {% endfor %}
+{% endblock %}

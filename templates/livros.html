@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+	
+	<form class="ui form" method="post" id="form" accept-charset="utf-8">
+	 {% csrf_token %}
+
+	  <div class="field">
+	  	<input type="text" name="titulo" id="titulo" placeholder="titulo" size="30" maxlength="40"/>
+	  </div>
+
+	  <button class="ui button" type="submit">Buscar</button>
+
+	</form>
+
+	{% for livro in livros %}
+		<h1>{{livro.titulo}}</h1>
+		<img src="{{livro.foto.url}}">
+
+	{% endfor %}
+	<p>Seja bem vindo!!!<p/>
+{% endblock %}
