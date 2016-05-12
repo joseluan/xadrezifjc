@@ -65,10 +65,11 @@ def adicionar(request):
 	if request.method == "POST":
 		form = FormFotoCliente(request.POST, request.FILES)
 		lv = Livro.objects.create(titulo=request.POST.get("titulo"), autor=request.POST.get("autor"), numero=request.POST.get("numero"))
+		lv.foto = request.FILES['file']
 		lv.save()
 		return render(request,'adicionar.html',{
 			'form': form,
-			'lv': request.FILES.keys(),})
+			'lv': request.FILES['file'],})
 	else:
 		return render(request,'adicionar.html',{'form': form,})
 
